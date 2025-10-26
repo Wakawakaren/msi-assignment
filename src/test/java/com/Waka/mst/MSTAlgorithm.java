@@ -66,4 +66,25 @@ class MSTAlgorithmTest {
         if (g.getVertexCount() == 1 && mst.isEmpty()) return true;
         return mst.size() == g.getVertexCount() - 1;
     }
+    @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.DisplayName("Execution time is non-negative")
+    void testExecutionTimeNonNegative() {
+        Graph g = graphMap.get(1);
+        AlgorithmResult primResult = prim.run(g);
+        AlgorithmResult kruskalResult = kruskal.run(g);
+
+        org.junit.jupiter.api.Assertions.assertTrue(primResult.getExecution_time_ms() >= 0);
+        org.junit.jupiter.api.Assertions.assertTrue(kruskalResult.getExecution_time_ms() >= 0);
+    }
+
+    @org.junit.jupiter.api.Test
+    @org.junit.jupiter.api.DisplayName("Operation counts are non-negative")
+    void testOperationCountNonNegative() {
+        Graph g = graphMap.get(1);
+        AlgorithmResult primResult = prim.run(g);
+        AlgorithmResult kruskalResult = kruskal.run(g);
+
+        org.junit.jupiter.api.Assertions.assertTrue(primResult.getOperations_count() >= 0);
+        org.junit.jupiter.api.Assertions.assertTrue(kruskalResult.getOperations_count() >= 0);
+    }
 }
