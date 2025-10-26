@@ -1,0 +1,8 @@
+.idea/
+*.iml
+target/
+.DS_Store
+Thumbs.db
+*.log
+ass_3_output.json
+/graph_images/
